@@ -19,6 +19,7 @@ import { default as React_2 } from 'react';
 import { ReactNode } from 'react';
 import { ResultHighlight } from '@backstage/plugin-search-common';
 import { RouteRef } from '@backstage/core-plugin-api';
+import { SearchResultListItemExtensionComponent } from '@backstage/plugin-search-react';
 import { TableColumn } from '@backstage/core-components';
 import { TableProps } from '@backstage/core-components';
 import { TechDocsEntityMetadata as TechDocsEntityMetadata_2 } from '@backstage/plugin-techdocs-react';
@@ -401,6 +402,9 @@ export const TechDocsSearchResultListItem: (
 ) => JSX.Element;
 
 // @public
+export const TechDocsSearchResultListItemExtension: SearchResultListItemExtensionComponent<TechDocsSearchResultListItemProps>;
+
+// @public
 export type TechDocsSearchResultListItemProps = {
   icon?: ReactNode;
   result: any;
@@ -410,6 +414,7 @@ export type TechDocsSearchResultListItemProps = {
   asListItem?: boolean;
   asLink?: boolean;
   title?: string;
+  noTrack?: boolean;
 };
 
 // @public @deprecated

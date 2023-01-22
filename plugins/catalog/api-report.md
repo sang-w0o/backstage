@@ -19,6 +19,7 @@ import { default as React_2 } from 'react';
 import { ReactNode } from 'react';
 import { ResultHighlight } from '@backstage/plugin-search-common';
 import { RouteRef } from '@backstage/core-plugin-api';
+import { SearchResultListItemExtensionComponent } from '@backstage/plugin-search-react';
 import { StarredEntitiesApi } from '@backstage/plugin-catalog-react';
 import { StorageApi } from '@backstage/core-plugin-api';
 import { StyleRules } from '@material-ui/core/styles/withStyles';
@@ -111,12 +112,17 @@ export function CatalogSearchResultListItem(
   props: CatalogSearchResultListItemProps,
 ): JSX.Element;
 
+// @public (undocumented)
+export const CatalogSearchResultListItemExtension: SearchResultListItemExtensionComponent<CatalogSearchResultListItemProps>;
+
 // @public
 export interface CatalogSearchResultListItemProps {
   // (undocumented)
   highlight?: ResultHighlight;
   // (undocumented)
   icon?: ReactNode;
+  // (undocumented)
+  noTrack?: boolean;
   // (undocumented)
   rank?: number;
   // (undocumented)
