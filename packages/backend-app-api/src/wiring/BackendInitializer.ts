@@ -137,8 +137,10 @@ export class BackendInitializer {
     const orderedRegisterResults = this.#resolveInitOrder(this.#registerInits);
 
     for (const registerInit of orderedRegisterResults) {
+      const start = Date.now();
       const deps = await this.#getInitDeps(registerInit.deps, registerInit.id);
       await registerInit.init(deps);
+      console.log(`Initialized ${registerInit.id} in ${Date.now() - start}ms`);
     }
   }
 

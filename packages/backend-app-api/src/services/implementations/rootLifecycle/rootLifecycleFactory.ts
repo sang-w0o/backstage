@@ -42,17 +42,23 @@ export class BackendLifecycleImpl implements RootLifecycleService {
     this.#isCalled = true;
 
     this.logger.info(`Running ${this.#shutdownTasks.length} shutdown tasks...`);
-    await Promise.all(
-      this.#shutdownTasks.map(async hook => {
-        const { logger = this.logger } = hook;
-        try {
-          await hook.fn();
-          logger.info(`Shutdown hook succeeded`);
-        } catch (error) {
-          logger.error(`Shutdown hook failed, ${error}`);
-        }
-      }),
-    );
+    // TODO: run on crash as well?
+    try {
+      await Promise.all(
+        this.#shutdownTasks.map(async hook => {
+          const { logger = this.logger } = hook;
+          try {
+            await hook.fn();
+            logger.info(`Shutdown hook succeeded`);
+          } catch (error) {
+            logger.error(`Shutdown hook failed, ${error}`);
+          }
+        }),
+      );
+      process.exit(0);
+    } catch {
+      process.exit(1);
+    }
   }
 }
 
