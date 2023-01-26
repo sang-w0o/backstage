@@ -1,5 +1,15 @@
 # @backstage/plugin-azure-devops-backend
 
+## 0.3.21-next.1
+
+### Patch Changes
+
+- 85b04f659a: Internal refactor to not use deprecated `substr`
+- Updated dependencies
+  - @backstage/backend-common@0.18.2-next.1
+  - @backstage/config@1.0.6
+  - @backstage/plugin-azure-devops-common@0.3.0
+
 ## 0.3.21-next.0
 
 ### Patch Changes
